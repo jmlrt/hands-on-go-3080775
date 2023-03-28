@@ -46,15 +46,12 @@ func main() {
 		for _, character := range word {
 			if unicode.IsLetter(character) {
 				counts["letters"]++
-			}
-			if unicode.IsSymbol(character) {
+			} else if unicode.IsNumber(character) {
+				counts["numbers"]++
+			} else {
 				counts["symbols"]++
 			}
-			if unicode.IsNumber(character) {
-				counts["numbers"]++
-			}
 		}
-
 	}
 
 	// dump the map to the console using the spew package
